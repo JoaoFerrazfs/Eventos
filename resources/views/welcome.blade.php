@@ -5,48 +5,32 @@
 
 @section('content')
 
-
-        <h1> Vocês esta na tela inicial</h1>
-
-        <form method="GET">
-            <label>Numero </label>
-            <input type="text" name="numero"> 
-            <input type="submit" name="testar">
+<div id="search-container" class="col-md-12">
+    <h1> Busque um evento <h1>
+        <form action="">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Procurar evento">
         </form>
+</div>        
+        <div id="events-container" class="col-md-12">
+            <h2>Próximos Eventos</h2>
+            <p class="subtitle">Veja os eventos dos próximos dias</p>
+            <div id="cards-container" class="row">
+                @foreach ($events as $events )
+                <div class="card col-md-3">
+                    <img src="/img/banner2.jpg" alt="{{$events->tile}}">
+                    <div class="card-body">
+                        <p class="card-date"> 10/09/2020 </p>
+                        <h5 class="card-title"> {{ $events->title}} </h5>
+                        <p class="card-participants"> X Participantes </p>                        
+                        <a href="#" class="btn btn-secondary">Saber mais</a>
+                    </div>   
+                </div>    
+                @endforeach    
+                
+            </div>   
+        </div>
 
-        <img src="/img/banner.jpg" alt="Banner"/>
 
-
-        @if (1>5)
-        <p> True</p>
-        @else
-        <p>False</p>
-        @endif
-
-        <p> Nome: {{$nome}}</p>
-        <p> Idade: {{$idade}}</p>
-        <p> Profissao: {{$profissao}}</p>
-
-
-        @for ( $i = 0 ; $i < count($arr); $i++)
-        <p> Numero: {{ $arr[$i] }} </p>
-      
-
-        @if ($i==4)
-        <p>Nome: {{$nome}} e {{$arr[$i] }} </p>            
-        @endif
-      
-        @endfor
-
-        {{-- Comentário com Blade --}}
-
-        <!-- Comentario com HTML -->
-
-        @foreach ($arr as $arr )
-
-        <p> Este é o Index {{ $loop->index}}</p>
-        <p> Este é o numero {{ $arr }}
-        @endforeach
 
 @endsection
   
