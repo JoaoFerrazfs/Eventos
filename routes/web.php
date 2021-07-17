@@ -11,6 +11,6 @@ Route::get('/events/create',[EventController::class,'create']);
 
 Route::get('/contact',[ContactController::class,'index']);
 
-
+Route::post('/events',[EventController::class, 'store']);
 
 
